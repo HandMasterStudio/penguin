@@ -101,7 +101,7 @@ int main(){
     //model mat4
     glm::mat4 model;
     float i = 0.0f;
-    //~
+    //~ 
     float deltaTime = 0;
     float lastFrame = 0;
 
