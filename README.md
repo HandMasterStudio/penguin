@@ -1,7 +1,7 @@
 # penguin
 
-**Project: **c++ and opengl
+Project: c++ and opengl
 
-##description
+## description
 It just game i create for fun. 
 
