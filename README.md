@@ -1,9 +1,15 @@
 # Penguin
-## Its open-source game i make using c++ and opengl
+## Open-Source Game Made With C++ And Opengl
 
-This project/game i make is just fun. And because i need money to:).. 
+This is a fun project/game I made for learning and enjoyment. Please give the donations i need money for living..
 
-* write in c++
-* 100% opengl
+# Library
+* c++
+* opengl
+* glad
+* glfw
+* glm 
+* stb image
+
 
 
