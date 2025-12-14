@@ -1,7 +1,9 @@
-# penguin
+#Penguin
+##Its open-source game i make using c++ and opengl
 
-Project: c++ and opengl
+This project/game i make is just fun. And because i need money to:).. 
 
-## description
-It just game i create for fun. 
+*write in c++
+*100% opengl
+
 
