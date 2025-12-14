@@ -34,6 +34,8 @@ private:
     float speed = 2.0f;
     float deltaTime;
     float eye = 1.0f;
+    float gravity = 1.0f;
+    
 };
 
 extern Player player;

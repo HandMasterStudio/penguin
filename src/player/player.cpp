@@ -10,6 +10,7 @@ void Player::setup(float speed,float eye){
     this->eye = eye;
     camera = new Camera();
     cameraPos = camera->getCameraPosition();
+    gravity = 1.0f;
 }
 
 void Player::setPosPlayer(glm::vec3 pos){
@@ -24,6 +25,8 @@ void Player::setEyePlayer(float eye){
 void Player::loop(float deltaTime,ShaderCompiler &shader){
     this->deltaTime = deltaTime;
 
+    cameraPos.y = gravity;
+    gravity -= 0.1;
     cameraFront = camera->getCameraFront();
     cameraUp = camera->getCameraUp();
     controllerKeyboard();
