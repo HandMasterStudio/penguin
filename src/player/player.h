@@ -14,15 +14,16 @@ using namespace std;
 
 class Player{
 public:
-    void setup(float speed,float eye);
+    void setup(float speed,float eye,float airControl);
     void setPosPlayer(glm::vec3 pos);
-    void setEyePlayer(float eye);
     void loop(float deltaTime,ShaderCompiler &shader);
     void forwardMovementMouse(float x,float y);
     void cleanUp();
 
     glm::vec3 getPosPlayer();
+    glm::vec3 getPosCamera();
 private:
+    void checkingGround();
     void controllerKeyboard();
     void mouse();
 
@@ -35,6 +36,9 @@ private:
     float deltaTime;
     float eye = 1.0f;
     float gravity = 1.0f;
+    float airControl = 8.0f;
+    bool ground = false;
+    bool jump = false;
     
 };
 

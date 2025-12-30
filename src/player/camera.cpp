@@ -1,6 +1,8 @@
 #include<player/camera.h>
 #include<window/windowManager.h>
 
+//public
+//update camera
 void Camera::update(float deltaTime,ShaderCompiler &shader){
     w = windowManager.getWindowSizeW();
     h = windowManager.getWindowSizeH();
@@ -28,6 +30,7 @@ void Camera::setCameraUp(glm::vec3 &up){
     this->cameraUp = up;
 }
 
+//get movement mouse
 void Camera::movementMouse(float x,float y){
     x*= sensMouse;
     y*= sensMouse;
@@ -52,14 +55,18 @@ void Camera::movementMouse(float x,float y){
     eulerUpdate();
 }
 
+//rotate camera
 void Camera::eulerUpdate(){
     glm::vec3 front;
     front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
     front.y = sin(glm::radians(pitch));
     front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+    //hfront to remove y axis from cameraPos
     HFront = glm::normalize(glm::vec3(front.x,0,front.z));
     cameraFront = glm::normalize(front);
 }
+
+//private
 
 glm::vec3 Camera::getCameraPosition()const{
     return cameraPosition;
