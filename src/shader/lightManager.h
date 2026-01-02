@@ -1,0 +1,11 @@
+#pragma once 
+#include<glad/glad.h>
+#include<glm/glm.hpp>
+#include<glm/gtc/matrix_transform.hpp>
+
+class Light{
+public:
+    Light();
+    void cleanUp();
+private:
+};

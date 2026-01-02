@@ -16,8 +16,9 @@ class Player{
 public:
     void setup(float speed,float eye,float airControl);
     void setPosPlayer(glm::vec3 pos);
-    void loop(float deltaTime,ShaderCompiler &shader);
+    void loop(float deltaTime);
     void forwardMovementMouse(float x,float y);
+    void addShader(ShaderCompiler &shader);
     void cleanUp();
 
     glm::vec3 getPosPlayer();

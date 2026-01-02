@@ -4,16 +4,20 @@
 #include<glm/gtc/matrix_transform.hpp>
 #include<shader/shaderCompiler.h>
 #include<iostream>
+#include<vector>
+
+using namespace std;
 
 class Camera{
 public:
     glm::vec3 HFront = glm::vec3(0,0,0);
-    void update(float deltaTime,ShaderCompiler &shader);
+    void update(float deltaTime);
     void setCameraPosition(glm::vec3 &pos);
     void setCameraFront(glm::vec3 &front);
     void setCameraUp(glm::vec3 &up);
     void movementMouse(float x,float y);
     void eulerUpdate();
+    void forwardAddShaderFunction(ShaderCompiler &addShader);
     void cleanUp();
 
     glm::vec3 getCameraPosition()const;
@@ -22,6 +26,7 @@ public:
 private:
     void camera();
 
+    vector<ShaderCompiler> shader;
     glm::vec3 cameraPosition = glm::vec3(0,0,0); //default will be 0,0,0
     glm::mat4 projection;
     glm::mat4 view;

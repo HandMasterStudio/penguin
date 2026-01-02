@@ -85,12 +85,12 @@ clean: CMakeFiles/penguin.dir/clean
 CMakeFiles/penguin.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/penguin.dir/build.make CMakeFiles/penguin.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/penguin.dir/build.make CMakeFiles/penguin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/handdev/penguin/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target penguin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/handdev/penguin/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target penguin"
 .PHONY : CMakeFiles/penguin.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/penguin.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/handdev/penguin/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/handdev/penguin/build/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/penguin.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/handdev/penguin/build/CMakeFiles 0
 .PHONY : CMakeFiles/penguin.dir/rule
@@ -102,7 +102,7 @@ penguin: CMakeFiles/penguin.dir/rule
 # codegen rule for target.
 CMakeFiles/penguin.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/penguin.dir/build.make CMakeFiles/penguin.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/handdev/penguin/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Finished codegen for target penguin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/handdev/penguin/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Finished codegen for target penguin"
 .PHONY : CMakeFiles/penguin.dir/codegen
 
 # clean rule for target.

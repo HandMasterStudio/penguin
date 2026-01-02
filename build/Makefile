@@ -304,6 +304,30 @@ src/player/player.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/penguin.dir/build.make CMakeFiles/penguin.dir/src/player/player.cpp.s
 .PHONY : src/player/player.cpp.s
 
+src/shader/lightManager.o: src/shader/lightManager.cpp.o
+.PHONY : src/shader/lightManager.o
+
+# target to build an object file
+src/shader/lightManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/penguin.dir/build.make CMakeFiles/penguin.dir/src/shader/lightManager.cpp.o
+.PHONY : src/shader/lightManager.cpp.o
+
+src/shader/lightManager.i: src/shader/lightManager.cpp.i
+.PHONY : src/shader/lightManager.i
+
+# target to preprocess a source file
+src/shader/lightManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/penguin.dir/build.make CMakeFiles/penguin.dir/src/shader/lightManager.cpp.i
+.PHONY : src/shader/lightManager.cpp.i
+
+src/shader/lightManager.s: src/shader/lightManager.cpp.s
+.PHONY : src/shader/lightManager.s
+
+# target to generate assembly for a file
+src/shader/lightManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/penguin.dir/build.make CMakeFiles/penguin.dir/src/shader/lightManager.cpp.s
+.PHONY : src/shader/lightManager.cpp.s
+
 src/shader/shaderCompiler.o: src/shader/shaderCompiler.cpp.o
 .PHONY : src/shader/shaderCompiler.o
 
@@ -383,6 +407,9 @@ help:
 	@echo "... src/player/player.o"
 	@echo "... src/player/player.i"
 	@echo "... src/player/player.s"
+	@echo "... src/shader/lightManager.o"
+	@echo "... src/shader/lightManager.i"
+	@echo "... src/shader/lightManager.s"
 	@echo "... src/shader/shaderCompiler.o"
 	@echo "... src/shader/shaderCompiler.i"
 	@echo "... src/shader/shaderCompiler.s"

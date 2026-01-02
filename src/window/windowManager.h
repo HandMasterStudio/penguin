@@ -20,13 +20,17 @@ public:
     GLFWwindow* getWindowID()const;
     int getWindowSizeH()const;
     int getWindowSizeW()const;
+    bool getIsPause()const;
     const char* getTitleString()const;
 
 private:
     int w = 600;
     int h = 400;
+    bool isPause = false;
     const char* title = "ERROR:Give title for the window by using setWindowTitle(title)";
     GLFWwindow* window;
+
+    void statePause();
 };
 
 extern WindowManager windowManager;

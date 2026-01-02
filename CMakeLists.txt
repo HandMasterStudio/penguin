@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)    
 
-include_directories(src lib)
+include_directories(src lib shader)
 
 add_executable(penguin 
 src/main.cpp
@@ -18,6 +18,7 @@ src/core/renderer.cpp
 src/shader/shaderCompiler.cpp
 src/player/camera.cpp
 src/player/player.cpp
+src/shader/lightManager.cpp
 )
 
 target_link_libraries(penguin glfw OpenGL::GL)

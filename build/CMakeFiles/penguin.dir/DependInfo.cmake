@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/handdev/penguin/src/main.cpp" "CMakeFiles/penguin.dir/src/main.cpp.o" "gcc" "CMakeFiles/penguin.dir/src/main.cpp.o.d"
   "/home/handdev/penguin/src/player/camera.cpp" "CMakeFiles/penguin.dir/src/player/camera.cpp.o" "gcc" "CMakeFiles/penguin.dir/src/player/camera.cpp.o.d"
   "/home/handdev/penguin/src/player/player.cpp" "CMakeFiles/penguin.dir/src/player/player.cpp.o" "gcc" "CMakeFiles/penguin.dir/src/player/player.cpp.o.d"
+  "/home/handdev/penguin/src/shader/lightManager.cpp" "CMakeFiles/penguin.dir/src/shader/lightManager.cpp.o" "gcc" "CMakeFiles/penguin.dir/src/shader/lightManager.cpp.o.d"
   "/home/handdev/penguin/src/shader/shaderCompiler.cpp" "CMakeFiles/penguin.dir/src/shader/shaderCompiler.cpp.o" "gcc" "CMakeFiles/penguin.dir/src/shader/shaderCompiler.cpp.o.d"
   "/home/handdev/penguin/src/window/windowManager.cpp" "CMakeFiles/penguin.dir/src/window/windowManager.cpp.o" "gcc" "CMakeFiles/penguin.dir/src/window/windowManager.cpp.o.d"
   "" "penguin" "gcc" "CMakeFiles/penguin.dir/link.d"

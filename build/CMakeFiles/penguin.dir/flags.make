@@ -5,13 +5,13 @@
 # compile CXX with /usr/bin/g++
 C_DEFINES = 
 
-C_INCLUDES = -I/home/handdev/penguin/src -I/home/handdev/penguin/lib
+C_INCLUDES = -I/home/handdev/penguin/src -I/home/handdev/penguin/lib -I/home/handdev/penguin/shader
 
 C_FLAGS = -g
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/handdev/penguin/src -I/home/handdev/penguin/lib
+CXX_INCLUDES = -I/home/handdev/penguin/src -I/home/handdev/penguin/lib -I/home/handdev/penguin/shader
 
 CXX_FLAGS = -g
 

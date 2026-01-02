@@ -23,8 +23,8 @@ int main(){
     windowManager.setWindowSize(500,250);
     windowManager.setWindowTitle("penguin");
 
-    ShaderCompiler shader("/home/handdev/penguin/src/shader/shader.vert",
-        "/home/handdev/penguin/src/shader/shader.frag");
+    ShaderCompiler shader("/home/handdev/penguin/shader/shader.vert",
+        "/home/handdev/penguin/shader/shader.frag");
 
     //~~~~~~~~learnOpengl.com~~~~~~~~~~
     vector<float> vertices = {
@@ -101,10 +101,11 @@ int main(){
         deltaTime = currentFrame - lastFrame;
         lastFrame = currentFrame;
         windowManager.setColor(0,0,0);
-        player.loop(deltaTime,shader);
+        player.loop(deltaTime);
         shader.use();
         shader.setVec3("lightPos", 1.2f, 1.0f, 2.0f);
         shader.setVec3("viewPos",player.getPosCamera());
+        player.addShader(shader);
 
         glm::vec3 lightColor = glm::vec3(1,1,1);
         // lightColor.x = static_cast<float>(sin(glfwGetTime()*2));
@@ -124,7 +125,7 @@ int main(){
         //maths
         model = glm::mat4(1.0f);
         model = glm::translate(model, glm::vec3(0,1,0));
-        // model = glm::rotate(model,glm::radians(i),glm::vec3(1,1,1));
+        model = glm::rotate(model,glm::radians(i),glm::vec3(1,1,1));
         i++;
         shader.setMat4("model", model);
         renQuad.render(shader,36);
@@ -163,5 +164,7 @@ void mouseCallBack(GLFWwindow* window,double xPosIn,double yPosIn){
     float yOffset = lastY - yPos;
     lastX = xPos;
     lastY = yPos;
-    player.forwardMovementMouse(xOffset,yOffset);
+    if(!windowManager.getIsPause()){
+        player.forwardMovementMouse(xOffset,yOffset);
+    }
 }

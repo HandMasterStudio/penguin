@@ -3,7 +3,7 @@
 
 //public
 //update camera
-void Camera::update(float deltaTime,ShaderCompiler &shader){
+void Camera::update(float deltaTime){
     w = windowManager.getWindowSizeW();
     h = windowManager.getWindowSizeH();
     this->deltaTime = deltaTime;
@@ -12,10 +12,12 @@ void Camera::update(float deltaTime,ShaderCompiler &shader){
 
     projection = glm::perspective(glm::radians(45.0f),(float)w/(float)h,0.1f,100.0f);
     view = glm::lookAt(cameraPosition,cameraPosition+cameraFront,cameraUp);
-
-    shader.use();
-    shader.setMat4("projection",projection);
-    shader.setMat4("view",view);
+    
+    for(auto shaders:shader){
+        shaders.use();
+        shaders.setMat4("projection",projection);
+        shaders.setMat4("view",view);
+    }
 }
 
 void Camera::setCameraPosition(glm::vec3 &pos){
@@ -45,12 +47,6 @@ void Camera::movementMouse(float x,float y){
         pitch = -89.0f;
     }
 
-    if(glfwGetKey(windowManager.getWindowID(),GLFW_KEY_ESCAPE)){
-        glfwSetInputMode(windowManager.getWindowID(),GLFW_CURSOR,GLFW_CURSOR_NORMAL);
-    }else{
-        glfwSetInputMode(windowManager.getWindowID(),GLFW_CURSOR,GLFW_CURSOR_DISABLED);
-    }
-
 
     eulerUpdate();
 }
@@ -64,6 +60,17 @@ void Camera::eulerUpdate(){
     //hfront to remove y axis from cameraPos
     HFront = glm::normalize(glm::vec3(front.x,0,front.z));
     cameraFront = glm::normalize(front);
+}
+
+void Camera::forwardAddShaderFunction(ShaderCompiler &addShader){
+    shader.push_back(addShader);
+}
+
+void Camera::cleanUp(){
+    for(auto shaders:shader){
+        shaders.cleanUp();
+        shader.clear();
+    }
 }
 
 //private

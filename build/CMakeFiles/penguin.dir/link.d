@@ -11,6 +11,7 @@ penguin: \
   CMakeFiles/penguin.dir/src/shader/shaderCompiler.cpp.o \
   CMakeFiles/penguin.dir/src/player/camera.cpp.o \
   CMakeFiles/penguin.dir/src/player/player.cpp.o \
+  CMakeFiles/penguin.dir/src/shader/lightManager.cpp.o \
   /usr/lib/libglfw.so.3.4 \
   /usr/lib/libGLX.so \
   /usr/lib/libOpenGL.so \
@@ -70,6 +71,8 @@ CMakeFiles/penguin.dir/src/shader/shaderCompiler.cpp.o:
 CMakeFiles/penguin.dir/src/player/camera.cpp.o:
 
 CMakeFiles/penguin.dir/src/player/player.cpp.o:
+
+CMakeFiles/penguin.dir/src/shader/lightManager.cpp.o:
 
 /usr/lib/libglfw.so.3.4:
 

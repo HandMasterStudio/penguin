@@ -14,6 +14,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/penguin.dir/src/player/camera.cpp.o.d"
   "CMakeFiles/penguin.dir/src/player/player.cpp.o"
   "CMakeFiles/penguin.dir/src/player/player.cpp.o.d"
+  "CMakeFiles/penguin.dir/src/shader/lightManager.cpp.o"
+  "CMakeFiles/penguin.dir/src/shader/lightManager.cpp.o.d"
   "CMakeFiles/penguin.dir/src/shader/shaderCompiler.cpp.o"
   "CMakeFiles/penguin.dir/src/shader/shaderCompiler.cpp.o.d"
   "CMakeFiles/penguin.dir/src/window/windowManager.cpp.o"

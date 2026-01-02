@@ -18,7 +18,7 @@ void Player::setPosPlayer(glm::vec3 pos){
     this->playerPos = pos;
 }
 
-void Player::loop(float deltaTime,ShaderCompiler &shader){
+void Player::loop(float deltaTime){
     this->deltaTime = deltaTime;
 
     cameraFront = camera->getCameraFront();
@@ -36,17 +36,20 @@ void Player::loop(float deltaTime,ShaderCompiler &shader){
         jump = false;
     }
     controllerKeyboard();
-    camera->update(deltaTime,shader);
-}
-
-void Player::cleanUp(){
-    delete camera;
-    cout<<"Saving player position"<<endl;
-
+    camera->update(deltaTime);
 }
 
 void Player::forwardMovementMouse(float x,float y){
     camera->movementMouse(x,y);
+}
+
+void Player::addShader(ShaderCompiler &shader){
+    camera->forwardAddShaderFunction(shader);
+}
+
+void Player::cleanUp(){
+    camera->cleanUp();
+    delete camera;
 }
 
 glm::vec3 Player::getPosPlayer(){

@@ -28,6 +28,8 @@ void WindowManager::windowInit(){
 }
 
 void WindowManager::prepare(){
+    statePause();
+
     glfwSwapBuffers(window);
     glfwPollEvents();
 }
@@ -68,8 +70,35 @@ int WindowManager::getWindowSizeW()const{
     return w;
 }
 
+bool WindowManager::getIsPause()const{
+    return isPause;
+}
+
 const char* WindowManager::getTitleString()const{
     return title;
+}
+
+//private
+void WindowManager::statePause(){
+    //enter pause mode!
+    if(glfwGetKey(windowManager.getWindowID(), GLFW_KEY_ESCAPE)){
+        isPause = true;
+        glfwSetCursorPos(this->window, w/2, h/2);
+    }
+
+    //~
+
+    //aut of pause mode!
+    if(glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT)){
+        isPause = false;
+    }
+    // ~
+
+  if(isPause){
+        glfwSetInputMode(windowManager.getWindowID(),GLFW_CURSOR,GLFW_CURSOR_NORMAL);
+    }else{
+        glfwSetInputMode(windowManager.getWindowID(),GLFW_CURSOR,GLFW_CURSOR_DISABLED);
+    }
 }
 
 void frameBufferSizeCallBack(GLFWwindow* window,int wV,int hV){
