@@ -1,7 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/home/handdev/penguin/build/cmake_install.cmake"
-	],
-	"Parallel" : false
-}

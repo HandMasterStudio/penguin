@@ -18,7 +18,6 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/handdev/penguin/src/shader/lightManager.cpp" "CMakeFiles/penguin.dir/src/shader/lightManager.cpp.o" "gcc" "CMakeFiles/penguin.dir/src/shader/lightManager.cpp.o.d"
   "/home/handdev/penguin/src/shader/shaderCompiler.cpp" "CMakeFiles/penguin.dir/src/shader/shaderCompiler.cpp.o" "gcc" "CMakeFiles/penguin.dir/src/shader/shaderCompiler.cpp.o.d"
   "/home/handdev/penguin/src/window/windowManager.cpp" "CMakeFiles/penguin.dir/src/window/windowManager.cpp.o" "gcc" "CMakeFiles/penguin.dir/src/window/windowManager.cpp.o.d"
-  "" "penguin" "gcc" "CMakeFiles/penguin.dir/link.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

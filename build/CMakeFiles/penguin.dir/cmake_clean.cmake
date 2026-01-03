@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/penguin.dir/link.d"
   "CMakeFiles/penguin.dir/src/core/renderer.cpp.o"
   "CMakeFiles/penguin.dir/src/core/renderer.cpp.o.d"
   "CMakeFiles/penguin.dir/src/glad.c.o"
