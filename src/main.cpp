@@ -23,8 +23,8 @@ int main(){
     windowManager.setWindowSize(500,250);
     windowManager.setWindowTitle("penguin");
 
-    ShaderCompiler shader("/home/handdev/penguin/shader/shader.vert",
-        "/home/handdev/penguin/shader/shader.frag");
+    ShaderCompiler shader("/home/hady/penguin/shader/shader.vert",
+        "/home/hady/penguin/shader/shader.frag");
 
     //~~~~~~~~learnOpengl.com~~~~~~~~~~
     vector<float> vertices = {
@@ -81,9 +81,9 @@ int main(){
     };
     //~
 
-    Loader quad(vertices,indices,"/home/handdev/penguin/res/image/test_tex.png");
+    Loader quad(vertices,indices,"/home/hady/penguin/res/image/test_tfdsfex.png");
     Renderer renQuad(quad.loadToVao(),quad.texture());
-    Loader quad2(vertices,indices,"/home/handdev/penguin/res/image/wall.jpg");
+    Loader quad2(vertices,indices,"/home/hady/penguin/res/image/walfdasfdl.jpg");
     Renderer renQuad2(quad2.loadToVao(),quad2.texture());
     player.setup(10,2,7);
     player.setPosPlayer(glm::vec3(0,0,0));

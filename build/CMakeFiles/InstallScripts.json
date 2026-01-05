@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/hady/penguin/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

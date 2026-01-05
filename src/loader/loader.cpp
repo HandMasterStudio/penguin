@@ -30,7 +30,14 @@ unsigned int Loader::texture(){
     stbi_set_flip_vertically_on_load(true);
     unsigned char* data = stbi_load(tex,&width,&height,&nrChannels,0);
 
-    if(data){
+    try
+    {  
+        //checking if data have right loc
+        if(!data){
+            throw runtime_error("ERROR::Cannot find texture file");
+        }
+        //~
+        
         glGenTextures(1,&texID);
         glBindTexture(GL_TEXTURE_2D,texID);
 
@@ -41,9 +48,13 @@ unsigned int Loader::texture(){
 
         glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,width,height,0,GL_RGB,GL_UNSIGNED_BYTE,data);
         glGenerateMipmap(GL_TEXTURE_2D);
-    }else{
-        cout<<"ERROR:Cant load image "<<tex<<endl;
-        unsigned char* error = stbi_load("/home/handdev/penguin/res/image/error_tex.png",&width,&height,&nrChannels,0);
+
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        unsigned char* error = stbi_load("/home/hady/penguin/res/image/error_tex.png",&width,&height,&nrChannels,0);
+        //you stupid:)
         if(!error){
             cout<<"ERROR:Bro why you remove the error_tex? its should be on /home/handdev/penguin/res/image/error_tex.png"<<endl;
         }else{
