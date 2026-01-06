@@ -1,0 +1,11 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/hady/penguin/build/cmake_install.cmake",
+		"/home/hady/penguin/build/lib/glfw/cmake_install.cmake",
+		"/home/hady/penguin/build/lib/glfw/src/cmake_install.cmake",
+		"/home/hady/penguin/build/lib/glfw/docs/cmake_install.cmake",
+		"/home/hady/penguin/build/lib/glm/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
