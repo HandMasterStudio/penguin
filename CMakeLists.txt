@@ -1,12 +1,11 @@
-cmake_minimum_required(VERSION 4.0)
+cmake_minimum_required(VERSION 3.16)
 project(penguin)
 
 set(CMAKE_CXX_STANDARD 17)
 
-find_package(OpenGL REQUIRED)
-find_package(glfw3 REQUIRED)    
-
-include_directories(src lib shader)
+find_package(OpenGL REQUIRED)    
+add_subdirectory(lib/glfw)
+add_subdirectory(lib/glm)
 
 add_executable(penguin 
 src/main.cpp
@@ -21,4 +20,11 @@ src/player/player.cpp
 src/shader/lightManager.cpp
 )
 
-target_link_libraries(penguin glfw OpenGL::GL)
+target_include_directories(penguin PUBLIC 
+src
+lib
+shader
+lib/glfw/include
+)
+
+target_link_libraries(penguin PUBLIC glfw OpenGL::GL)

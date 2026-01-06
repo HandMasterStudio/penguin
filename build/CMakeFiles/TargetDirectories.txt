@@ -1,3 +1,0 @@
-/home/hady/penguin/build/CMakeFiles/penguin.dir
-/home/hady/penguin/build/CMakeFiles/edit_cache.dir
-/home/hady/penguin/build/CMakeFiles/rebuild_cache.dir
