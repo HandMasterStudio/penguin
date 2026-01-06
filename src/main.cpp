@@ -1,12 +1,12 @@
 #include<glad/glad.h>
-#include<loader/loader.h>
-#include<shader/shaderCompiler.h>
-#include<window/windowManager.h>
-#include<core/renderer.h>
+#include"loader/loader.h"
+#include"shader/shaderCompiler.h"
+#include"window/windowManager.h"
+#include"core/renderer.h"
 #include<glm/glm.hpp>
 #include<glm/gtc/matrix_transform.hpp>
 #include<glm/gtc/type_ptr.hpp>
-#include<player/player.h>
+#include"player/player.h"
 #include<iostream>
 
 using namespace std;

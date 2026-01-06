@@ -1,8 +1,7 @@
-#include<player/player.h>
-#include<player/camera.h>
-#include<shader/shaderCompiler.h>
-#include<player/camera.h>
-#include<window/windowManager.h>
+#include"player/player.h"
+#include"player/camera.h"
+#include"shader/shaderCompiler.h"
+#include"window/windowManager.h"
 
 //public
 void Player::setup(float speed,float eye,float airControl){
