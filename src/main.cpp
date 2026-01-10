@@ -1,3 +1,7 @@
+// █████▄ ▄▄▄▄▄ ▄▄  ▄▄  ▄▄▄▄ ▄▄ ▄▄ ▄▄ ▄▄  ▄▄ 
+// ██▄▄█▀ ██▄▄  ███▄██ ██ ▄▄ ██ ██ ██ ███▄██ 
+// ██     ██▄▄▄ ██ ▀██ ▀███▀ ▀███▀ ██ ██ ▀██                          
+
 #include<glad/glad.h>
 #include"loader/loader.h"
 #include"shader/shaderCompiler.h"
@@ -7,6 +11,7 @@
 #include<glm/gtc/matrix_transform.hpp>
 #include<glm/gtc/type_ptr.hpp>
 #include"player/player.h"
+#include"shader/lightManager.h"
 #include<iostream>
 
 using namespace std;
@@ -16,6 +21,7 @@ void mouseCallBack(GLFWwindow* window,double xPosIn,double yPosIn);
 bool mouseClick = true;
 float lastX = windowManager.getWindowSizeW()/2;
 float lastY = windowManager.getWindowSizeH()/2;
+glm::vec3 point_light = glm::vec3 (0.0f, 2.0f, 0.0f);
 
 int main(){
     windowManager.windowInit();
@@ -25,6 +31,8 @@ int main(){
 
     ShaderCompiler shader("/home/hady/penguin/shader/shader.vert",
         "/home/hady/penguin/shader/shader.frag");
+    ShaderCompiler lightShader("/home/hady/penguin/shader/light.vert",
+        "/home/hady/penguin/shader/light.frag");
 
     //~~~~~~~~learnOpengl.com~~~~~~~~~~
     vector<float> vertices = {
@@ -87,6 +95,7 @@ int main(){
     Renderer renQuad2(quad2.loadToVao(),quad2.texture());
     player.setup(10,2,7);
     player.setPosPlayer(glm::vec3(0,0,0));
+    lightManager.setup();
     //model mat4
     glm::mat4 model;
     float i = 0.0f;
@@ -103,7 +112,7 @@ int main(){
         windowManager.setColor(0,0,0);
         player.loop(deltaTime);
         shader.use();
-        shader.setVec3("lightPos", 1.2f, 1.0f, 2.0f);
+        shader.setVec3("lightPos", point_light);
         shader.setVec3("viewPos",player.getPosCamera());
         player.addShader(shader);
 
@@ -128,14 +137,19 @@ int main(){
         model = glm::rotate(model,glm::radians(i),glm::vec3(1,1,1));
         i++;
         shader.setMat4("model", model);
-        renQuad.render(shader,36);
+        renQuad.render(36);
         //~
 
         model = glm::mat4(1.0f);
         model = glm::translate(model,glm::vec3(0,0,0));
         model = glm::scale(model,glm::vec3(20,1,20));
         shader.setMat4("model",model);
-        renQuad2.render(shader,36);
+        renQuad2.render(36);
+
+        lightShader.use();
+        player.addShader(lightShader);
+        lightManager.createPointLight(point_light, glm::vec3(0.5f,0.5f,0.5f),lightShader);
+        lightManager.createPointLight(glm::vec3(3.0f,1.0f,0.0f),glm::vec3(0.5f,0.5f,0.5f),lightShader);
 
         windowManager.prepare();
     }
@@ -146,6 +160,7 @@ int main(){
     quad2.cleanUp();
     player.cleanUp();
     windowManager.cleanUp();
+    lightManager.cleanUp();
     //delete
     return 0;
 }

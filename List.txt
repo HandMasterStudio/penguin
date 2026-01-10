@@ -1,0 +1,19 @@
+                                                                   
+█████▄ ▄▄▄▄▄ ▄▄  ▄▄  ▄▄▄▄ ▄▄ ▄▄ ▄▄ ▄▄  ▄▄   ██     ▄▄  ▄▄▄▄ ▄▄▄▄▄▄ *
+██▄▄█▀ ██▄▄  ███▄██ ██ ▄▄ ██ ██ ██ ███▄██   ██     ██ ███▄▄   ██   
+██     ██▄▄▄ ██ ▀██ ▀███▀ ▀███▀ ██ ██ ▀██   ██████ ██ ▄▄██▀   ██   
+
+----------------------------------------------------------------------------------        
+▄▄▄▄▄▄ ▄▄▄  ▄▄▄▄   ▄▄▄  
+  ██  ██▀██ ██▀██ ██▀██ 
+  ██  ▀███▀ ████▀ ▀███▀ 
+    -making perfect light + no shodow needed
+    -lighting config file cpp
+    -3d importer obj
+    -polish movement player and add some basic movement (jump(physics), crawl and movement camera)
+    -create basic map
+    -create gun
+    -create very modular code engine
+    -texture
+    -download blender and other app...
+                        
