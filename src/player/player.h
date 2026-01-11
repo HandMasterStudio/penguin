@@ -19,10 +19,13 @@ public:
     void loop(float deltaTime);
     void forwardMovementMouse(float x,float y);
     void addShader(ShaderCompiler &shader);
+    void removeTranslation();
     void cleanUp();
 
     glm::vec3 getPosPlayer();
     glm::vec3 getPosCamera();
+    glm::mat4 getViewMatrix()const;
+    glm::mat4 getProjMatrix()const;
 private:
     void checkingGround();
     void controllerKeyboard();

@@ -18,6 +18,7 @@ src/shader/shaderCompiler.cpp
 src/player/camera.cpp
 src/player/player.cpp
 src/shader/lightManager.cpp
+src/skybox/skyManager.cpp
 )
 
 target_include_directories(penguin PUBLIC 

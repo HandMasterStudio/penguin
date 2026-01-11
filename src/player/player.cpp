@@ -46,6 +46,10 @@ void Player::addShader(ShaderCompiler &shader){
     camera->forwardAddShaderFunction(shader);
 }
 
+void Player::removeTranslation(){
+    camera->removeTranslation();
+}
+
 void Player::cleanUp(){
     camera->cleanUp();
     delete camera;
@@ -57,6 +61,14 @@ glm::vec3 Player::getPosPlayer(){
 
 glm::vec3 Player::getPosCamera(){
     return cameraPos;
+}
+
+glm::mat4 Player::getViewMatrix()const{
+    return camera->getViewMatrix();
+}
+
+glm::mat4 Player::getProjMatrix()const{
+    return camera->getProjMatrix();
 }
 
 //private

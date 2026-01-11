@@ -13,7 +13,7 @@ void Camera::update(float deltaTime){
     projection = glm::perspective(glm::radians(45.0f),(float)w/(float)h,0.1f,100.0f);
     view = glm::lookAt(cameraPosition,cameraPosition+cameraFront,cameraUp);
     
-    for(auto shaders:shader){
+    for(auto& shaders:shader){
         shaders.use();
         shaders.setMat4("projection",projection);
         shaders.setMat4("view",view);
@@ -66,6 +66,10 @@ void Camera::forwardAddShaderFunction(ShaderCompiler &addShader){
     shader.push_back(addShader);
 }
 
+void Camera::removeTranslation(){
+    view = glm::mat4(glm::mat3(getViewMatrix()));
+}
+
 void Camera::cleanUp(){
     for(auto shaders:shader){
         shaders.cleanUp();
@@ -73,11 +77,9 @@ void Camera::cleanUp(){
     }
 }
 
-//private
-
 glm::vec3 Camera::getCameraPosition()const{
-    return cameraPosition;
-}
+        return cameraPosition;
+    }
 
 
 glm::vec3 Camera::getCameraFront()const{
@@ -87,3 +89,12 @@ glm::vec3 Camera::getCameraFront()const{
 glm::vec3 Camera::getCameraUp()const{
     return cameraUp;
 }
+
+glm::mat4 Camera::getViewMatrix()const{
+    return view;
+}
+
+glm::mat4 Camera::getProjMatrix()const{
+    return projection;
+}
+

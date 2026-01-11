@@ -18,11 +18,14 @@ public:
     void movementMouse(float x,float y);
     void eulerUpdate();
     void forwardAddShaderFunction(ShaderCompiler &addShader);
+    void removeTranslation();
     void cleanUp();
 
     glm::vec3 getCameraPosition()const;
     glm::vec3 getCameraFront()const;
     glm::vec3 getCameraUp()const;
+    glm::mat4 getViewMatrix()const;
+    glm::mat4 getProjMatrix()const;
 private:
     void camera();
 

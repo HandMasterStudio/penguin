@@ -12,6 +12,7 @@
 #include<glm/gtc/type_ptr.hpp>
 #include"player/player.h"
 #include"shader/lightManager.h"
+#include"skybox/skyManager.h"
 #include<iostream>
 
 using namespace std;
@@ -33,6 +34,8 @@ int main(){
         "/home/hady/penguin/shader/shader.frag");
     ShaderCompiler lightShader("/home/hady/penguin/shader/light.vert",
         "/home/hady/penguin/shader/light.frag");
+    ShaderCompiler cubeMapShader("/home/hady/penguin/shader/cubeMap.vert",
+        "/home/hady/penguin/shader/cubeMap.frag");
 
     //~~~~~~~~learnOpengl.com~~~~~~~~~~
     vector<float> vertices = {
@@ -96,12 +99,16 @@ int main(){
     player.setup(10,2,7);
     player.setPosPlayer(glm::vec3(0,0,0));
     lightManager.setup();
+    skyManager.init();
     //model mat4
     glm::mat4 model;
     float i = 0.0f;
     //~ 
     float deltaTime = 0;
     float lastFrame = 0;
+
+    cubeMapShader.use();
+    cubeMapShader.setInt("skybox",0);
 
     // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
@@ -114,7 +121,7 @@ int main(){
         shader.use();
         shader.setVec3("lightPos", point_light);
         shader.setVec3("viewPos",player.getPosCamera());
-        player.addShader(shader);
+        player.addShader(shader);   
 
         glm::vec3 lightColor = glm::vec3(1,1,1);
         // lightColor.x = static_cast<float>(sin(glfwGetTime()*2));
@@ -151,6 +158,10 @@ int main(){
         lightManager.createPointLight(point_light, glm::vec3(0.5f,0.5f,0.5f),lightShader);
         lightManager.createPointLight(glm::vec3(3.0f,1.0f,0.0f),glm::vec3(0.5f,0.5f,0.5f),lightShader);
 
+        //cubeMap 
+        cubeMapShader.use();
+        skyManager.render(cubeMapShader);
+
         windowManager.prepare();
     }
 
@@ -161,6 +172,7 @@ int main(){
     player.cleanUp();
     windowManager.cleanUp();
     lightManager.cleanUp();
+    skyManager.cleanUp();
     //delete
     return 0;
 }

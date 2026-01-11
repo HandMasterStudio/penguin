@@ -16,4 +16,6 @@
     -create very modular code engine
     -texture
     -download blender and other app...
+    -skybox texture
+    //-skybox rendering
                         
