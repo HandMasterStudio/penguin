@@ -56,12 +56,12 @@ void SkyManager::init(){
     glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,3*sizeof(float),(void*)0);
 
     face = {
-        "/home/hady/penguin/res/skybox/right.jpg",
-        "/home/hady/penguin/res/skybox/left.jpg",
-        "/home/hady/penguin/res/skybox/top.jpg",
-        "/home/hady/penguin/res/skybox/bottom.jpg",
-        "/home/hady/penguin/res/skybox/front.jpg",
-        "/home/hady/penguin/res/skybox/back.jpg"
+        "/home/hady/penguin/res/skybox1/right.png",
+        "/home/hady/penguin/res/skybox1/left.png",
+        "/home/hady/penguin/res/skybox1/top.png",
+        "/home/hady/penguin/res/skybox1/bottom.png",
+        "/home/hady/penguin/res/skybox1/front.png",
+        "/home/hady/penguin/res/skybox1/back.png"
     };
 
     cubeMapFinal = cubeMapTexture(face);
@@ -112,6 +112,13 @@ unsigned int SkyManager::cubeMapTexture(vector<string> face){
         if(data){
             glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X+i,0,GL_RGB,w,h,0,GL_RGB,GL_UNSIGNED_BYTE,data);
             stbi_image_free(data);
+
+            cout << face[i] 
+     << " w=" << w 
+     << " h=" << h 
+     << " comp=" << nrComponents 
+     << endl;
+
         }else{
             cout<<"ERROR::CubeMap texture failed to load at path" <<face[i]<<endl;
             stbi_image_free(data);

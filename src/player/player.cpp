@@ -78,7 +78,7 @@ void Player::checkingGround(){
         gravity -= 0.2;
     }else if(gravity <= eye){
         ground = true;
-        gravity = 2;
+        gravity = eye;
     }
 
     if(jump){
