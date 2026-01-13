@@ -112,13 +112,6 @@ unsigned int SkyManager::cubeMapTexture(vector<string> face){
         if(data){
             glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X+i,0,GL_RGB,w,h,0,GL_RGB,GL_UNSIGNED_BYTE,data);
             stbi_image_free(data);
-
-            cout << face[i] 
-     << " w=" << w 
-     << " h=" << h 
-     << " comp=" << nrComponents 
-     << endl;
-
         }else{
             cout<<"ERROR::CubeMap texture failed to load at path" <<face[i]<<endl;
             stbi_image_free(data);

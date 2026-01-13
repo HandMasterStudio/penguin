@@ -22,7 +22,10 @@ void mouseCallBack(GLFWwindow* window,double xPosIn,double yPosIn);
 bool mouseClick = true;
 float lastX = windowManager.getWindowSizeW()/2;
 float lastY = windowManager.getWindowSizeH()/2;
-glm::vec3 point_light = glm::vec3 (0.0f, 2.0f, 0.0f);
+glm::vec3 point_light = glm::vec3 (0.0f, 2.0f, 4.0f);
+glm::vec3 point_light1 = glm::vec3 (0.0f, 2.0f, -4.0f);
+glm::vec3 point_light2 = glm::vec3 (4.0f, 2.0f, 0.0f);
+glm::vec3 point_light3 = glm::vec3 (-4.0f, 2.0f, 0.0f);
 
 int main(){
     windowManager.windowInit();
@@ -39,36 +42,37 @@ int main(){
 
     //~~~~~~~~learnOpengl.com~~~~~~~~~~
     vector<float> vertices = {
-         0.5f, 0.5f, 0.5f,  0,0,1,
-         0.5f,-0.5f, 0.5f,  0,0,1,
-        -0.5f,-0.5f, 0.5f,  0,0,1,
-        -0.5f, 0.5f, 0.5f,  0,0,1,
+         0.5f,  0.5f,  0.5f,   0,0,1,   1,1,
+         0.5f, -0.5f,  0.5f,   0,0,1,   1,0,
+        -0.5f, -0.5f,  0.5f,   0,0,1,   0,0,
+        -0.5f,  0.5f,  0.5f,   0,0,1,   0,1,
 
-         0.5f, 0.5f,-0.5f,  0,0,-1,
-        -0.5f, 0.5f,-0.5f,  0,0,-1,
-        -0.5f,-0.5f,-0.5f,  0,0,-1,
-         0.5f,-0.5f,-0.5f,  0,0,-1,
+         0.5f,  0.5f, -0.5f,   0,0,-1,  1,1,
+        -0.5f,  0.5f, -0.5f,   0,0,-1,  0,1,
+        -0.5f, -0.5f, -0.5f,   0,0,-1,  0,0,
+         0.5f, -0.5f, -0.5f,   0,0,-1,  1,0,
 
-         0.5f,-0.5f, 0.5f,  -1,0,0,
-         0.5f,-0.5f,-0.5f,  -1,0,0,
-         0.5f, 0.5f,-0.5f,  -1,0,0,
-         0.5f, 0.5f, 0.5f,  -1,0,0,
+         0.5f, -0.5f,  0.5f,   1,0,0,   0,0,
+         0.5f, -0.5f, -0.5f,   1,0,0,   1,0,
+         0.5f,  0.5f, -0.5f,   1,0,0,   1,1,
+         0.5f,  0.5f,  0.5f,   1,0,0,   0,1,
 
-         -0.5f,-0.5f,-0.5f,  1,0,0,
-         -0.5f, 0.5f,-0.5f,  1,0,0,
-         -0.5f, 0.5f, 0.5f,  1,0,0,
-         -0.5f,-0.5f, 0.5f,  1,0,0,
+        -0.5f, -0.5f, -0.5f,  -1,0,0,   0,0,
+        -0.5f,  0.5f, -0.5f,  -1,0,0,   0,1,
+        -0.5f,  0.5f,  0.5f,  -1,0,0,   1,1,
+        -0.5f, -0.5f,  0.5f,  -1,0,0,   1,0,
 
-          0.5f, 0.5f, 0.5f,  0,1,0,
-         -0.5f, 0.5f, 0.5f,  0,1,0,
-         -0.5f, 0.5f,-0.5f,  0,1,0,
-          0.5f, 0.5f,-0.5f,  0,1,0,
+         0.5f,  0.5f,  0.5f,   0,1,0,   1,1,
+        -0.5f,  0.5f,  0.5f,   0,1,0,   0,1,
+        -0.5f,  0.5f, -0.5f,   0,1,0,   0,0,
+         0.5f,  0.5f, -0.5f,   0,1,0,   1,0,
 
-          0.5f,-0.5f, 0.5f,  0,-1,0,
-         -0.5f,-0.5f, 0.5f,  0,-1,0,
-         -0.5f,-0.5f,-0.5f,  0,-1,0,
-          0.5f,-0.5f,-0.5f,  0,-1,0
+         0.5f, -0.5f,  0.5f,   0,-1,0,  1,1,
+        -0.5f, -0.5f,  0.5f,   0,-1,0,  0,1,
+        -0.5f, -0.5f, -0.5f,   0,-1,0,  0,0,
+         0.5f, -0.5f, -0.5f,   0,-1,0,  1,0
     };
+
 
 
     vector<unsigned int> indices = {
@@ -92,9 +96,9 @@ int main(){
     };
     //~
 
-    Loader quad(vertices,indices,"/home/hady/penguin/res/image/test_tfdsfex.png");
+    Loader quad(vertices,indices,"/home/hady/penguin/res/image/test_tex.png");
     Renderer renQuad(quad.loadToVao(),quad.texture());
-    Loader quad2(vertices,indices,"/home/hady/penguin/res/image/walfdasfdl.jpg");
+    Loader quad2(vertices,indices,"/home/hady/penguin/res/image/wall.jpg");
     Renderer renQuad2(quad2.loadToVao(),quad2.texture());
     player.setup(10,2,7);
     player.setPosPlayer(glm::vec3(0,0,0));
@@ -110,6 +114,11 @@ int main(){
     cubeMapShader.use();
     cubeMapShader.setInt("skybox",0);
 
+    shader.use();
+    shader.setInt("material.diffuse",0);
+    shader.setInt("material.specular",0);
+    shader.setInt("lightUsed",4);
+
     // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
     while(!glfwWindowShouldClose(windowManager.getWindowID())){
@@ -119,30 +128,50 @@ int main(){
         windowManager.setColor(0,0,0);
         player.loop(deltaTime);
         shader.use();
-        shader.setVec3("lightPos", point_light);
         shader.setVec3("viewPos",player.getPosCamera());
+        shader.setFloat("material.shininess",32);
         player.addShader(shader);   
 
-        glm::vec3 lightColor = glm::vec3(1,1,1);
-        // lightColor.x = static_cast<float>(sin(glfwGetTime()*2));
-        // lightColor.y = static_cast<float>(sin(glfwGetTime()*0.7f));
-        // lightColor.z = static_cast<float>(sin(glfwGetTime()*1.3f));
-        glm::vec3 diffColor = lightColor * glm::vec3(0.5f);
-        glm::vec3 ambientColor = diffColor * glm::vec3(0.2f);
-        shader.setVec3("light.ambient",ambientColor);
-        shader.setVec3("light.diffuse",diffColor);
-        shader.setVec3("light.specular",1,1,1);
+        // shader.setVec3("dirLight.direction", -0.2f, -1.0f, -0.3f);
+        // shader.setVec3("dirLight.ambient", 0.05f, 0.05f, 0.05f);
+        // shader.setVec3("dirLight.diffuse", 0.4f, 0.4f, 0.4f);
+        // shader.setVec3("dirLight.specular", 0.5f, 0.5f, 0.5f);
+        
+        shader.setVec3("pointLights[0].position", point_light);
+        shader.setVec3("pointLights[0].ambient", 0.00f, 0.00f, 0.1f);
+        shader.setVec3("pointLights[0].diffuse", 0.0f, 0.0f, 0.8f);
+        shader.setVec3("pointLights[0].specular", 0.3f, 0.3f, 1.0f);
+        shader.setFloat("pointLights[0].constant", 1.0f);
+        shader.setFloat("pointLights[0].linear", 0.09f);
+        shader.setFloat("pointLights[0].quadratic", 0.032f);
 
-        shader.setVec3("material.ambient",1,0.5f,0.31f);
-        shader.setVec3("material.diffuse",1,0.5f,0.31f);
-        shader.setVec3("material.specular",0.5f,0.5f,0.5f);
-        shader.setFloat("material.shininess",32);
+        shader.setVec3("pointLights[1].position", point_light1);
+        shader.setVec3("pointLights[1].ambient", 0.1f, 0.0f, 0.0f);
+        shader.setVec3("pointLights[1].diffuse", 0.8f, 0.0f, 0.0f);
+        shader.setVec3("pointLights[1].specular", 1.0f, 0.2f, 0.2f);
+        shader.setFloat("pointLights[1].constant", 1.0f);
+        shader.setFloat("pointLights[1].linear", 0.09f);
+        shader.setFloat("pointLights[1].quadratic", 0.032f);
+
+        shader.setVec3("pointLights[2].position", point_light2);
+        shader.setVec3("pointLights[2].ambient", 0.0f, 0.1f, 0.0f);
+        shader.setVec3("pointLights[2].diffuse", 0.0f, 0.8f, 0.0f);
+        shader.setVec3("pointLights[2].specular", 0.3f, 1.0f, 0.3f);
+        shader.setFloat("pointLights[2].constant", 1.0f);
+        shader.setFloat("pointLights[2].linear", 0.09f);
+        shader.setFloat("pointLights[2].quadratic", 0.032f);
+
+        shader.setVec3("pointLights[3].position", point_light3);
+        shader.setVec3("pointLights[3].ambient", 0.05f, 0.05f, 0.05f);
+        shader.setVec3("pointLights[3].diffuse", 0.8f, 0.8f, 0.8f);
+        shader.setVec3("pointLights[3].specular", 1.0f, 1.0f, 1.0f);
+        shader.setFloat("pointLights[3].constant", 1.0f);
+        shader.setFloat("pointLights[3].linear", 0.09f);
+        shader.setFloat("pointLights[3].quadratic", 0.032f);
         
         //maths
         model = glm::mat4(1.0f);
         model = glm::translate(model, glm::vec3(0,1,0));
-        model = glm::rotate(model,glm::radians(i),glm::vec3(1,1,1));
-        i++;
         shader.setMat4("model", model);
         renQuad.render(36);
         //~
@@ -155,8 +184,17 @@ int main(){
 
         lightShader.use();
         player.addShader(lightShader);
+        lightShader.setVec3("color", 0,0,1);
         lightManager.createPointLight(point_light, glm::vec3(0.5f,0.5f,0.5f),lightShader);
-        lightManager.createPointLight(glm::vec3(3.0f,1.0f,0.0f),glm::vec3(0.5f,0.5f,0.5f),lightShader);
+
+        lightShader.setVec3("color", 1,0,0);
+        lightManager.createPointLight(point_light1, glm::vec3(0.5f,0.5f,0.5f),lightShader);
+
+        lightShader.setVec3("color", 0,1,0);
+        lightManager.createPointLight(point_light2, glm::vec3(0.5f,0.5f,0.5f),lightShader);
+
+        lightShader.setVec3("color", 1,1,1);
+        lightManager.createPointLight(point_light3, glm::vec3(0.5f,0.5f,0.5f),lightShader);
 
         //cubeMap 
         cubeMapShader.use();
